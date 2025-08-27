@@ -1,4 +1,5 @@
 
+
 # Web Practice
 
 This repository contains my practice work for **HTML, CSS, and JavaScript** along with notes and small projects.  
