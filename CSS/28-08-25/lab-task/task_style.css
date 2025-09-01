@@ -1,0 +1,37 @@
+body{
+    /* padding: 5px; */
+    padding-left: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.div5{
+    background-color: rgb(237, 219, 219);
+    h2{
+        color: brown;
+    }
+}
+
+.tight{
+    line-height: 1;
+}
+.normal{
+    line-height: 1.5;
+}
+.loose{
+    list-style: 2;
+}
+
+.div6{
+    background-color: cadetblue;
+    h2{
+        color: white;
+    }
+    .tight{
+        letter-spacing: -1px;
+    }
+    .normal{
+        letter-spacing: 0px;
+    }
+    .wide{
+        letter-spacing: 3px;
+    }
+}

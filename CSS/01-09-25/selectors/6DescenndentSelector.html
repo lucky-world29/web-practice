@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Descednt selector</title>
+      <style>
+            *{
+                  box-sizing: border-box;
+                  padding: 0;
+                  margin: 0;
+            }
+            #parent{
+                  background-color: aqua;
+            }
+            #parent p{
+                  color: red;
+            }
+            #parent > p{ /*greater than symbol  ==> Descedant tag */
+                  color: blue; /*Override */
+            }
+/****/
+
+            #conatiner{
+                  background-color: blueviolet;
+            }
+            #conatiner article{ /*descedant selector */
+                  background-color: rgb(226, 211, 43);
+            }
+            #conatiner > article{
+                  background-color: rgb(15, 173, 38);
+            }
+      </style>
+</head>
+<body>
+      <div id="parent">
+            <p>para</p>
+            <p>para</p>
+            <p>para</p>
+            <div>
+                  <p>para</p>
+            </div>
+      </div>
+      <!--  -->
+      <br>
+      <!--  -->
+      <section id="conatiner">
+            <article>
+                  <p>param</p>
+                  <p>param</p>
+            </article>
+            <p>para direct clild</p>
+            <p>para direct clild</p>
+            <div>
+                  <article>article </article>
+            </div>
+      </section>
+
+</body>
+</html>

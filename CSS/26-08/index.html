@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* section#navbar nav figure img{
+            width: 100px;
+            height: auto;
+        } */
+         section{
+            border: 1px solid rgb(230, 139, 139);
+            height: 75px;
+         }
+         nav{
+            border: 2px solid grey;
+            height: 20%;
+            width: 20px;
+            margin:auto ;
+         }
+    </style>
+</head>
+<body>
+    <!-- <div style="width: 20%; background-color: rgb(228, 235, 235); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In repudiandae earum 
+            similique eius voluptas quam sed tenetur explicabo nostrum quis eos, nam,
+             illum alias magni ullam ipsa deserunt aperiam veritatis.</p>
+            <p>
+                My name is <span style="font-size: 20px;"><span style="font-size: 2em;">A</span>binash</span>
+            </p>
+    </div>
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis mollitia fuga
+             voluptatem nostrum? Placeat odio inventore cum nemo, dolor error laborum, 
+             dignissimos, esse excepturi harum incidunt facilis aliquid veniam velit!
+        </p>
+    </div>
+    <pre style="margin-block: 0em;">
+        Yo What's up 
+    </pre> -->
+
+    <section id="navbar">
+        <nav >
+            <figure>
+                <a href="www.amazon.com" target="_blank">
+                    <img src="data:image/png;base64,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" 
+                    alt="amazon",
+
+                    >
+                </a>
+            </figure>
+        </nav>
+        <!-- <label for="" style="display: block;">name</label> -->
+    </section>
+</body>
+</html>

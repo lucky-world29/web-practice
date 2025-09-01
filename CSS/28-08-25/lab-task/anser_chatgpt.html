@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Line Height Simple Demo</title>
+<style>
+  /* Pink box */
+  .card {
+    background: #fff1f2;       /* light pink background */
+    border: 1px solid #fecdd3; /* soft border */
+    padding: 15px;             /* space inside */
+    border-radius: 8px;        /* rounded corners */
+  }
+
+  /* Heading */
+  .card h2 {
+    color: #b91c1c;  /* dark red heading */
+  }
+
+  /* Paragraph text */
+  .card p {
+    color: #111827;   /* dark gray text */
+    margin: 10px 0;   /* space around paragraphs */
+  }
+
+  /* Separator line between paragraphs */
+  .card p + p {
+    border-top: 1px solid #f9a8d4; /* pink line above */
+    padding-top: 8px;              /* small gap */
+  }
+
+  /* Line height examples */
+  .tight {
+     line-height: 1;
+    }
+  .normal { line-height: 1.5; }
+  .loose { line-height: 2; }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>5. Line Height (<code>line-height</code>)</h2>
+
+    <p class="tight">This paragraph has a tight line height. The lines are closer together.</p>
+
+    <p class="normal">This paragraph has a normal line height. This is typically the default.</p>
+
+    <p class="loose">This paragraph has a loose line height. The lines are much further apart.</p>
+  </div>
+
+  
+
+</body>
+</html>

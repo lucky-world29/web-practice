@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Group Selector</title>
+      <style>
+            *{
+                  box-sizing: border-box;
+                  margin: 0;
+                  padding: 0;
+            }
+
+            h1{
+                  color: green;
+            }
+
+            /*Group Selector */
+            h1,div,ul,section{
+                  color: brown; /*it will override the color */
+            }
+
+            .div1,.head1,.section1,#head3{
+                  color: rgb(58, 32, 163);
+                  border: 4px;
+                  padding: 3px;
+            }
+      </style>
+</head>
+<body style="background-color: black;">
+      
+      <h1>h1</h1>
+      <div>div</div>
+      <ul>
+            <li>list</li>
+            <li>kist</li>
+            <li>kist</li>
+      </ul>
+      <section>section</section>
+
+      <!--  -->
+
+      <h2 class="head1">h2</h2>
+      <div class="div1">div 1</div>
+      <section class="section1">section 1</section>
+      <article class="art1">art 1</article>
+      <h3 id="head3">h3 id </h3>
+
+</body>
+</html>

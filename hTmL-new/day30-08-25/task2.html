@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Signup Page</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #0e0e0e;
+            color: #f0f0f0;
+        }
+        fieldset {
+            border: 2px solid #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            background-color: #1e1e1e;
+        }
+        legend {
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <form method="get">
+        <fieldset>
+            <legend><h1>Workshop Registration Page</h1></legend>
+            <div>
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>   
+                <span>Gender</span>
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="female">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="other" value="other">
+                <label for="other">Other</label>
+            </div>
+            <div>
+                <span>Skills</span>
+                <input type="checkbox" name="skills" id="html" value="HTML">
+                <label for="html">HTML</label>
+                <input type="checkbox" name="skills" id="css" value="CSS">
+                <label for="css">CSS</label>
+                <input type="checkbox" name="skills" id="js" value="JavaScript">
+                <label for="js">JavaScript</label>
+                <input type="checkbox" name="skills" id="python" value="Python">
+                <label for="python">Python</label>
+            </div>
+            <div>
+                <label for="dob">Date Of Birth</label>
+                <input type="date" name="dob" id="dob">
+            </div>
+            <div>
+                <label for="resume">Upload Resume</label>
+                <input type="file" name="resume" id="resume" multiple>
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

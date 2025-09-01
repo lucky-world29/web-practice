@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: transparent;">
+    <h1>1. Software Training Institution Registration Form</h1>
+
+    <fieldset>
+        <legend>Personal Details</legend>
+
+        <label for="name">Full Name :</label>
+        <input type="text"><br><br>
+        <label for="name">Email Address:</label>
+        <input type="email"><br><br>
+        <label for="name">Phone Number :</label>
+        <input type="text">
+
+        <br><br>
+        <label for="">Highest Education Qualification</label>
+
+        <select>
+            <option value="bachelor">-- Select Educaton Level</option>
+            <option value="master">Master's Degree</option>
+            <option value="phd">PhD</option>
+            <option value="diploma">Diploma</option>
+        </select>
+        <br><br>
+        <label for="">Employment Status</label>
+        <ul type="circle">
+            <li>Student</li>
+            <li>Employed</li>
+            <li>Unemployed</li>
+            <li>Self-employed</li>
+        </ul>
+
+
+    </fieldset>
+
+
+
+    <fieldset>
+        <legend>Course Selection</legend>
+        <br>
+        <label for="">Couse Category :</label>
+        <select>
+            <option value="bachelor">--Select Category</option>
+            <option value="master">Master's Degree</option>
+            <option value="phd">PhD</option>
+            <option value="diploma">Diploma</option>
+        </select>
+        <br><br>
+        <label for="">Specific Couse :</label>
+        <select>
+            <option value="bachelor">--Select Level</option>
+            <option value="master">Master's Degree</option>
+            <option value="phd">PhD</option>
+            <option value="diploma">Diploma</option>
+        </select>
+        <br><br>
+        <label for="">Couse Level :</label><br>
+        <select>
+            <option value="bachelor">--Select Timing --</option>
+            <option value="master">Master's Degree</option>
+            <option value="phd">PhD</option>
+            <option value="diploma">Diploma</option>
+        </select>
+        <br><br>
+        <label for="">Preferred Batch Timing :</label><br>
+        <select>
+            <option value="bachelor">-- Select Educaton Level</option>
+            <option value="master">Master's Degree</option>
+            <option value="phd">PhD</option>
+            <option value="diploma">Diploma</option>
+        </select>
+
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Technical Background </legend>
+
+        <br>
+
+        <label for="">Programming Languages Known (Select all that apply):</label>
+        <ul type="none" style="margin: 0;padding: 0;">
+            <li><input type="checkbox" name="language"> Java</li>
+            <li><input type="checkbox" name="language"> Python</li>
+            <li><input type="checkbox" name="language"> JavaScript</li>
+            <li><input type="checkbox" name="language"> C#</li>
+            <li><input type="checkbox" name="language"> C++</li>
+            <li><input type="checkbox" name="language"> PHP</li>
+            <li><input type="checkbox" name="language"> Ruby</li>
+            <li><input type="checkbox" name="language"> Other</li>
+        </ul>
+        <br>
+        <label for="">Years of Programming Experience </label>
+        <input type="text" style="width: 80px;">
+        <br><br>
+        <label for="">Technical background </label>
+        <br>
+        <textarea style="width: 40%; height: 80px;">
+Briefly describe your technical background and any relevant projects or experience you have...
+        </textarea>
+    </fieldset>
+    <!--  -->
+    <fieldset>
+        <legend>Payment Details</legend>
+
+        <label>Payment Method:</label><br>
+        <ul type="none" style="margin: 0; padding: 0; list-style: none;">
+            <li><input type="radio" name="payment" value="credit"> Credit Card</li>
+            <li><input type="radio" name="payment" value="debit"> Debit Card</li>
+            <li><input type="radio" name="payment" value="bank"> Bank Transfer</li>
+            <li><input type="radio" name="payment" value="paypal"> PayPal</li>
+        </ul>
+        <br>
+
+        <label for="plan">Payment Plan:</label><br>
+        <select id="plan" name="plan">
+            <option value="">--Select Payment Plan--</option>
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+        <br><br>
+
+        <label><input type="checkbox" name="earlybird"> Apply for Early Bird Discount (if available)</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Additional Information</legend>
+
+        <label for="ref">How did you hear about us?</label><br>
+        <select id="ref" name="ref">
+            <option value="">--Select Option--</option>
+            <option value="friends">Friends/Colleagues</option>
+            <option value="social">Social Media</option>
+            <option value="ads">Online Ads</option>
+            <option value="other">Other</option>
+        </select>
+        <br><br>
+
+        <label for="goals">What are your learning goals?</label><br>
+        <textarea id="goals" name="goals" placeholder="Describe what you hope to achieve through this training..."
+            style="width: 40%; height: 80px;"></textarea>
+        <br><br>
+
+        <label><input type="checkbox" name="newsletter"> Subscribe to our newsletter for updates on new courses and
+            offers</label><br>
+        <label><input type="checkbox" name="terms"> I agree to the Terms and Conditions</label>
+    </fieldset>
+
+    <br>
+    <button type="submit">Register</button>
+    <button type="reset">Clear Form</button>
+
+
+</body>
+
+</html>

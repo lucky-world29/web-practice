@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            .div1{
+                  box-sizing: content-box;
+                  width: 300px;
+                  border: 2px solid red;
+                  height: 250px;
+            }
+            .div2{
+                  height: 250px;
+                  width: 300px;
+                  border: 5px solid blue;
+                  padding: 20px;
+                  box-sizing: border-box;/*to avoid this comes selector */
+            }
+            #section1{
+                  height: 250px;
+                  width: 300px;
+                  border: 5px solid red;
+                  padding: 20px;
+                  /* box-sizing: content-box; */
+            }
+            #section2{
+                  height: 250px;
+                  width: 300px;
+                  border: 5px solid rgb(19, 166, 28);
+                  padding: 20px;
+                  box-sizing: border-box;
+            }
+      </style>
+</head>
+<body>
+       <!-- <div class="div1">
+            div 1 is using content-box 
+       </div>
+
+       <div class="div2">
+            div 2
+       </div> -->
+       
+       <!--  -->
+
+       <section id="section1">
+            section 1 tag with box-sizing as content-box
+       </section>
+       <br>
+       <section id="section2">
+             section 2 tag with box-sizing as border-box
+       </section>
+</body>
+</html>
