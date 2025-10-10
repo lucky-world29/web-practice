@@ -1,0 +1,2 @@
+navbar : name, about , projects , contact
+main : 

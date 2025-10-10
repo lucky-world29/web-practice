@@ -1,0 +1,52 @@
+<!-- RelativeAndAbsolute.html
+================================= -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .tooltip-container {
+        margin: 40px;
+        position: relative;
+        display: inline-block;
+      }
+      .btn {
+        margin-left: 9px;
+        border: none;
+        background-color: blue;
+        padding: 6px 12px;
+        border-radius: 7px;
+        color: white;
+      }
+      .tooltip {
+        background: linear-gradient(45deg, black, red, green);
+        color: white;
+        padding: 5px;
+        border-radius: 7px;
+        display: inline-block;
+        position: absolute;
+        white-space: nowrap;
+        bottom: 29px;
+        left: 12px;
+        box-shadow: 1px 0px 1px 1px rgb(144, 140, 140);
+        display: none;
+      }
+      .tooltip-container:hover .tooltip {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tooltip-container">
+      <button class="btn" title="tooltip">Hover on me</button>
+      <span class="tooltip">I am a tooltip</span>
+    </div>
+  </body>
+</html>

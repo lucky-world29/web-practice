@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Task 1</title>
+      <style>
+            body {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  min-height: 90vh;
+                  background: #f5f7fa;
+            }
+
+            .grid-container {
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 15px;
+                  background: #fff;
+                  padding: 20px;
+                  border-radius: 15px;
+                  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                  width: 800px;
+            }
+
+            .item {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 30px;
+                  font-size: 18px;
+                  font-weight: bold;
+                  border-radius: 10px;
+                  color: white;
+            }
+
+            .item1 {
+                  grid-column: span 2;
+                  background: #e74c3c;
+            }
+
+            .item2,
+            .item3,
+            .item4,
+            .item6,
+            .item7,
+            .item8 {
+                  background: #2874f0;
+            }
+
+            .item5 {
+                  grid-row: span 2;
+                  background: #16a085;
+            }
+
+            .item9 {
+                  grid-column: span 2;
+                  background: #f39c12;
+            }
+      </style>
+</head>
+
+<body>
+      <section class="grid-container">
+            
+                  <div class="item item1">Item 1 (Spans 2 Columns)</div>
+                  <div class="item item2">Item 2</div>
+                  <div class="item item3">Item 3</div>
+                  <div class="item item4">Item 4</div>
+                  <div class="item item5">Item 5 (Spans 2 Rows)</div>
+                  <div class="item item6">Item 6</div>
+                  <div class="item item7">Item 7</div>
+                  <div class="item item8">Item 8</div>
+                  <div class="item item9">Item 9 (Spans 2 Columns)</div>
+            
+      </section>
+</body>
+
+</html>

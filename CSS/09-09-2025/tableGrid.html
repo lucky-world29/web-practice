@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            *{
+                  padding: 0;
+                  margin: 0;
+                  box-sizing: border-box;
+            }
+            body{
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  grid-template-rows: repeat(3, 1fr);
+                  height: 100vh;
+                  gap: 10px;
+            }
+      </style>
+</head>
+<body>
+      <div style="background-color: lightcoral;">1</div>
+      <div style="background-color: lightblue;">2</div>
+      <div style="background-color: lightgreen;">3</div>
+      <div style="background-color: lightpink;">4</div>
+      <div style="background-color: lightgray;">5</div>
+      <div style="background-color: lightyellow;">6</div>
+      <div style="background-color: lightseagreen;">7</div>
+      <div style="background-color: lightsalmon;">8</div>
+      <div style="background-color: lightgoldenrodyellow;">9</div>
+      
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            section{
+                  height: 90vh;
+                  background-color: gray;
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 10px;
+                  padding: 10px;
+                  pad: 10px;
+            }    
+            div{
+                  background-color: lightblue;
+                  /* pad: 10px; */
+                  display: flex;
+                  border: 2px solid rebeccapurple;
+                  align-items: center;
+                  justify-content: center;
+            } 
+      </style>
+</head>
+<body>
+      <!-- <search>Hi</search> -->
+       <section>
+            <div style="grid-column: 1/ span 2">div1</div>
+            <!-- grid column : 1/4 ; is the short hand property for grid-column-start:1 -->
+            <div style="grid-column: 1/span 2;">div2</div>
+            <div>div3</div>
+            <div>div4</div>
+            <div style="grid-row: 1/span 2 ;">div5</div>
+            <div>div6</div>
+       </section>
+       <!-- what is difference bet display flex and grid  -->
+        <!-- props in grid 
+            1.grid template columns -> to define the no of columns in a grid
+            2.grid template rows  -> to define the no of rows in a grid
+            3.gap -> to define the gap between the rows and columns (it is a short-hand property for row gap and column gap that gives space )
+
+            4.grid-auto-flow -> to define how the auto placement algorithm works -> 
+                                                row(similar to flex-direction-row) ,
+                                                column(similar to flex-direction-column),
+                                                dense(fills the gaps in the grid)
+            5.reapeat(noOfRows/columns, width/height) -> to repeat the rows or columns
+            6.fr -> fraction of available space
+
+            7.grid column -> to define the no of columns a particular div will take(grid-column-start & grid-column-end)
+            8.grid row -> to define the no of rows a particular div will take(grid-row-start & grid-row-end)
+
+            (**).justify items -> to align the items in horizontal direction
+            (**).align items -> to align the items in vertical direction
+            (**).justify content -> to align the whole grid in horizontal direction
+            (**).align content -> to align the whole grid in vertical direction
+            (**).place items -> to align the items in both horizontal and vertical direction
+        -->
+</body>
+</html>

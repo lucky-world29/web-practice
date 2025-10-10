@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribute Selector</title>
+    <style>
+      /* attribute selectors
+         */
+      /* 1. here input tags are selected based on attribute name which is 'type' */
+      input[type] {
+        border: 2px solid red;
+      }
+      /* particular input tag will be selected which is having type='text'. (Exact value searching) */
+      input[type="text"] {
+        border: 5px solid greenyellow;
+      }
+      input[placeholder] {
+        border-radius: 20px;
+      }
+      /* Independent attribute selector */
+      [name] {
+        color: green;
+      }
+      button[class="btn"] {
+        padding: 6px 12px;
+      }
+      /* if class names begin with same word, then use the symbol '^' to select elements */
+      /* div[class^="test"] {
+              background-color: red;
+            } */
+
+      /* if class names end with same word, then use the symbol '$' to select elements */
+      /* div[class$="test"] {
+              color: yellow;
+              font-weight: bolder;
+            } */
+
+      /* div[class^="test123"] {
+              text-decoration: underline;
+            } */
+
+      /* if class names are present in different sequence or order , then select those element as substring using a symbol '*' */
+      /* [class*="m"] {
+              background-color: yellow
+            } */
+      /* div[class*="test"] {
+        background-color: aqua;
+      } */
+
+      /* It selects a particular word in a given class names to select elements by using symbol '~' */
+      article[class~="Art"] {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <form action="">
+      <input type="text" name="user" />
+      <input type="password" name="pwd" placeholder="" />
+      <input name="age" />
+      <input type="text" id="" placeholder="" />
+      <button class="btn">click Me</button>
+    </form> -->
+
+    <div class="test">div1</div>
+    <div class="test div">div2</div>
+    <div class="test123 test demo">div3</div>
+    <div class="div test">div4</div>
+
+    <!-- <section class="demo">section1</section>
+    <section class="demoSection">section2</section>
+    <section class="secDemo">section3</section> -->
+
+    <article class="myArt Art">art1</article>
+    <article class="my Art ele">art2</article>
+    <article class="my Art tag Ar">art2</article>
+  </body>
+</html>

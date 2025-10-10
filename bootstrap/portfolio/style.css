@@ -1,0 +1,58 @@
+body
+{
+      background: linear-gradient(45deg,rgb(44, 43, 43),rgb(26, 25, 25));
+      /* background-color: black; */
+      color: white;
+}
+.bg-custom {
+  background-color: rgb(110, 8, 206) !important;
+}
+.navbar a {
+  color: white !important;
+}
+#navbarNav {
+  display: flex;
+  justify-content: end;
+}
+#navbarNav a {
+  color: white !important;
+}
+
+#abouSection figure  {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+#abouSection img {
+  border: 2px solid black;
+  border-radius: 50%;
+}
+#abouSection p {
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/*project card*/
+#project{
+      /* card create  */
+      /* border-radius: 20px;
+      border: 1px solid rebeccapurple;
+      text-align: center; */
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 20px;
+}
+#project div{
+      background-color: rgb(29, 51, 51);
+      padding: 20px;
+      border-radius: 8px;
+      /* box-shadow: 2px; */
+}
+#project img{
+      width: 23px;
+      height: 34px;
+}

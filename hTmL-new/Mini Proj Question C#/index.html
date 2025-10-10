@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multilevel Inheritance Questions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 380px;
+      padding: 20px;
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    h2 {
+      font-size: 18px;
+      color: #0077cc;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    ul {
+      margin: 5px 0 10px 20px;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-top: 10px;
+      color: #444;
+    }
+    pre {
+      background: #1e1e2f;
+      color: #f8f8f2;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      padding: 12px 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      line-height: 1.4;
+      margin-top: 10px;
+      border-left: 5px solid #0077cc;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Multilevel Inheritance - C# Questions Date -> 25 & 26 sept  </h1>
+
+<div class="container">
+
+  <!-- Question 1 -->
+  <div class="card">
+    <h2>Multilevel Inheritance - 1</h2>
+    <p>Create a C# program to demonstrate multilevel inheritance using parameterized constructors and ToString() overriding.</p>
+    <p class="section-title">Requirements:</p>
+    <ul>
+      <li>Base Class <b>Person</b>: Fields → Name, Age. Implement parameterized constructor and override <code>ToString()</code>.</li>
+      <li>Derived Class <b>Employee</b>: Fields → EmployeeID, Department. Constructor calls <code>base(...)</code>. Override <code>ToString()</code>.</li>
+      <li>Derived Class <b>Salary</b>: Fields → BasicSalary, Bonus. Constructor calls base. Override <code>ToString()</code>.</li>
+      <li>Create <b>Salary</b> object in Main() and print complete employee details.</li>
+    </ul>
+    <p class="section-title">Output:</p>
+    <pre>
+----- Full Employee Details -----
+Name: Vaibhav
+Age: 28
+Employee ID: 101
+Department: IT
+Basic Salary: ₹50000.00
+Bonus: ₹7000.00
+    </pre>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="card">
+    <h2>Multilevel Inheritance - 2</h2>
+    <p>Create a C# program to demonstrate multilevel inheritance for a Bank Customer System.</p>
+    <p class="section-title">Requirements:</p>
+    <ul>
+      <li><b>Person</b>: Fields → Name, MobileNumber. Constructor + <code>ToString()</code>.</li>
+      <li><b>Customer</b>: Fields → CustomerID, Address. Constructor calls base. Override <code>ToString()</code>.</li>
+      <li><b>Account</b>: Fields → AccountNumber, Balance. Constructor calls base. Override <code>ToString()</code>.</li>
+      <li>Create an <b>Account</b> object and display details.</li>
+    </ul>
+    <p class="section-title">Output:</p>
+    <pre>
+----- Bank Customer Details -----
+Name: Vaibhav
+Mobile Number: 9976543210
+Customer ID: 1001
+Address: Pune
+Account Number: SB50023
+Balance: ₹75000.00
+    </pre>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="card">
+    <h2>Multilevel Inheritance - 3</h2>
+    <p>Demonstrate multilevel inheritance in a Hospital Management System.</p>
+    <p class="section-title">Requirements:</p>
+    <ul>
+      <li><b>Person</b>: Fields → Name, Age. Constructor + <code>ToString()</code>.</li>
+      <li><b>Patient</b>: Fields → PatientID, Illness. Constructor calls base. Override <code>ToString()</code>.</li>
+      <li><b>Treatment</b>: Fields → TreatmentID, TreatmentCost. Constructor calls base. Override <code>ToString()</code>.</li>
+      <li>Create a <b>Treatment</b> object and display details.</li>
+    </ul>
+    <p class="section-title">Output:</p>
+    <pre>
+----- Hospital Treatment Details -----
+Name: Vaibhav N
+Age: 35
+Patient ID: 2001
+Illness: Fever
+Treatment ID: 101
+Treatment Cost: ₹4500.00
+    </pre>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="card">
+    <h2>Multilevel Inheritance - 4</h2>
+    <p>Write a C# program with Employee → Manager → Director and allow multiple Director entries.</p>
+    <p class="section-title">Requirements:</p>
+    <ul>
+      <li><b>Employee</b>: EmpID, Name, Salary. Constructor.</li>
+      <li><b>Manager</b>: Department. Constructor calls base.</li>
+      <li><b>Director</b>: Bonus. Constructor calls parent. Method <code>PrintDetails()</code>.</li>
+      <li>In Main(), ask user for number of Directors, input details, store in array, and display all.</li>
+    </ul>
+    <p class="section-title">Input:</p>
+    <pre>
+Enter number of Directors: 2
+Enter details for Director 1:
+EmpID: 101, Name: Alice, Salary: 150000, Department: IT, Bonus: 30000
+Enter details for Director 2:
+EmpID: 102, Name: Bob, Salary: 160000, Department: HR, Bonus: 35000
+    </pre>
+    <p class="section-title">Output:</p>
+    <pre>
+--- All Directors ---
+Director Details:
+EmpID: 101
+Name: Alice
+Salary: 150000
+Department: IT
+Bonus: 30000
+
+Director Details:
+EmpID: 102
+Name: Bob
+Salary: 160000
+Department: HR
+Bonus: 35000
+    </pre>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="card">
+    <h2>Multilevel Inheritance - 5</h2>
+    <p>Simulate a University Student Result System using multilevel inheritance.</p>
+    <p class="section-title">Requirements:</p>
+    <ul>
+      <li><b>Person</b>: Name, Age. Constructor + <code>ToString()</code>.</li>
+      <li><b>Student</b>: RollNo, Course. Constructor calls base. Override <code>ToString()</code>.</li>
+      <li><b>Result</b>: Marks1, Marks2, Marks3. Methods: <code>CalculateTotal()</code>, <code>CalculatePercentage()</code>. Override <code>ToString()</code>.</li>
+      <li>In Main(), accept input and display full result.</li>
+    </ul>
+    <p class="section-title">Output:</p>
+    <pre>
+----- Student Result -----
+Name     : Vaibhav
+Age      : 21
+Roll No  : 101
+Course   : B.Tech
+Marks1   : 85
+Marks2   : 90
+Marks3   : 80
+Total    : 255
+Percentage: 85.00%
+    </pre>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="card">
+    <h2>Multilevel Inheritance - 6</h2>
+    <p>Implement a Real Estate Property Sale System using multilevel inheritance.</p>
+    <p class="section-title">Requirements:</p>
+    <ul>
+      <li><b>Property</b>: PropertyID, Location, BasePrice. Constructor + <code>ToString()</code>.</li>
+      <li><b>House</b>: Type, Area. Constructor calls base. Override <code>ToString()</code>.</li>
+      <li><b>Sale</b>: TaxPercent, DiscountPercent. Method: <code>CalculateFinalPrice()</code>. Override <code>ToString()</code>.</li>
+      <li>In Main(), accept input and display Sale Invoice.</li>
+    </ul>
+    <p class="section-title">Output:</p>
+    <pre>
+----- Sale Invoice -----
+Property ID : 101
+Location    : Pune
+Base Price  : 5000000
+Type        : Apartment
+Area        : 1200 sq.ft.
+Tax %       : 12
+Discount %  : 5
+Final Price : 5350000
+    </pre>
+  </div>
+
+  <!-- Question 7 -->
+  <div class="card">
+    <h2>Multilevel Inheritance - 7</h2>
+    <p>Create a Product → Order → Invoice system using multilevel inheritance.</p>
+    <p class="section-title">Requirements:</p>
+    <ul>
+      <li><b>Product</b>: ProductID, Name, Price. Constructor + <code>ToString()</code>.</li>
+      <li><b>Order</b>: Quantity, CustomerName. Constructor calls base. Override <code>ToString()</code>.</li>
+      <li><b>Invoice</b>: TaxPercent, DiscountPercent. Method <code>CalculateFinalBill()</code>. Override <code>ToString()</code>.</li>
+      <li>In Main(), accept details, create Invoice, and print.</li>
+    </ul>
+    <p class="section-title">Output:</p>
+    <pre>
+------ INVOICE ------
+Product ID: 101
+Name: Laptop
+Price: ₹50,000.00
+Quantity: 2
+Customer: Rahul
+Tax: 18%
+Discount: 10%
+Final Bill: ₹106,000.00
+    </pre>
+  </div>
+
+</div>
+
+
+<!--  -->
+<div class="answers">
+    <h1>Answers</h1>
+
+    <!-- Answer 1 -->
+    <div id="answer1" class="answer-card">
+        <h2>Answer 1: Employee Salary System</h2>
+        <pre>
+using System;
+
+class Person {
+    public string Name;
+    public int Age;
+    public Person(string name, int age) {
+        Name = name; Age = age;
+    }
+    public override string ToString() {
+        return $"Name: {Name}\nAge: {Age}";
+    }
+}
+
+class Employee : Person {
+    public int EmployeeID;
+    public string Department;
+    public Employee(string name, int age, int empId, string dept) 
+        : base(name, age) {
+        EmployeeID = empId; Department = dept;
+    }
+    public override string ToString() {
+        return base.ToString() +
+               $"\nEmployeeID: {EmployeeID}\nDepartment: {Department}";
+    }
+}
+
+class Salary : Employee {
+    public double BasicSalary, Bonus;
+    public Salary(string name, int age, int empId, string dept, double basic, double bonus) 
+        : base(name, age, empId, dept) {
+        BasicSalary = basic; Bonus = bonus;
+    }
+    public override string ToString() {
+        return base.ToString() +
+               $"\nBasic Salary: {BasicSalary}\nBonus: {Bonus}";
+    }
+}
+
+class Program {
+    static void Main() {
+        Salary s = new Salary("Vaibhav", 28, 101, "IT", 50000, 7000);
+        Console.WriteLine(s);
+    }
+}
+        </pre>
+    </div>
+
+    <!-- Answer 2 -->
+    <div id="answer2" class="answer-card">
+        <h2>Answer 2: Bank Customer System</h2>
+        <pre>
+using System;
+
+class Person {
+    public string Name;
+    public string Mobile;
+    public Person(string name, string mobile) {
+        Name = name; Mobile = mobile;
+    }
+    public override string ToString() {
+        return $"Name: {Name}\nMobile: {Mobile}";
+    }
+}
+
+class Customer : Person {
+    public int CustomerID;
+    public string Address;
+    public Customer(string name, string mobile, int custId, string addr) 
+        : base(name, mobile) {
+        CustomerID = custId; Address = addr;
+    }
+    public override string ToString() {
+        return base.ToString() +
+               $"\nCustomerID: {CustomerID}\nAddress: {Address}";
+    }
+}
+
+class Account : Customer {
+    public int AccountNumber;
+    public double Balance;
+    public Account(string name, string mobile, int custId, string addr, int accNo, double balance) 
+        : base(name, mobile, custId, addr) {
+        AccountNumber = accNo; Balance = balance;
+    }
+    public override string ToString() {
+        return base.ToString() +
+               $"\nAccountNumber: {AccountNumber}\nBalance: {Balance}";
+    }
+}
+
+class Program {
+    static void Main() {
+        Account a = new Account("Amit", "9876543210", 201, "Mumbai", 12345, 50000);
+        Console.WriteLine(a);
+    }
+}
+        </pre>
+    </div>
+
+    <!-- Answer 3 -->
+    <div id="answer3" class="answer-card">
+        <h2>Answer 3: Hospital Management System</h2>
+        <pre>
+using System;
+
+class Person {
+    public string Name;
+    public int Age;
+    public Person(string name, int age) { Name = name; Age = age; }
+    public override string ToString() => $"Name: {Name}\nAge: {Age}";
+}
+
+class Patient : Person {
+    public int PatientID;
+    public string Illness;
+    public Patient(string name, int age, int pid, string illness) : base(name, age) {
+        PatientID = pid; Illness = illness;
+    }
+    public override string ToString() => base.ToString() +
+        $"\nPatientID: {PatientID}\nIllness: {Illness}";
+}
+
+class Treatment : Patient {
+    public int TreatmentID;
+    public double Cost;
+    public Treatment(string name, int age, int pid, string illness, int tid, double cost) 
+        : base(name, age, pid, illness) {
+        TreatmentID = tid; Cost = cost;
+    }
+    public override string ToString() => base.ToString() +
+        $"\nTreatmentID: {TreatmentID}\nTreatmentCost: {Cost}";
+}
+
+class Program {
+    static void Main() {
+        Treatment t = new Treatment("Ravi", 40, 301, "Fever", 501, 1500);
+        Console.WriteLine(t);
+    }
+}
+        </pre>
+    </div>
+
+    <!-- Answer 4 -->
+    <div id="answer4" class="answer-card">
+        <h2>Answer 4: Employee → Manager → Director</h2>
+        <pre>
+using System;
+
+class Employee {
+    public int EmpID;
+    public string Name;
+    public double Salary;
+    public Employee(int id, string name, double salary) {
+        EmpID = id; Name = name; Salary = salary;
+    }
+    public override string ToString() =>
+        $"EmpID: {EmpID}\nName: {Name}\nSalary: {Salary}";
+}
+
+class Manager : Employee {
+    public string Department;
+    public Manager(int id, string name, double salary, string dept)
+        : base(id, name, salary) { Department = dept; }
+    public override string ToString() => base.ToString() +
+        $"\nDepartment: {Department}";
+}
+
+class Director : Manager {
+    public double Bonus;
+    public Director(int id, string name, double salary, string dept, double bonus) 
+        : base(id, name, salary, dept) { Bonus = bonus; }
+    public override string ToString() => base.ToString() +
+        $"\nBonus: {Bonus}";
+}
+
+class Program {
+    static void Main() {
+        Console.Write("Enter number of Directors: ");
+        int n = int.Parse(Console.ReadLine());
+        Director[] arr = new Director[n];
+        for (int i = 0; i < n; i++) {
+            Console.WriteLine($"Enter details for Director {i+1}:");
+            Console.Write("ID: "); int id = int.Parse(Console.ReadLine());
+            Console.Write("Name: "); string name = Console.ReadLine();
+            Console.Write("Salary: "); double sal = double.Parse(Console.ReadLine());
+            Console.Write("Department: "); string dept = Console.ReadLine();
+            Console.Write("Bonus: "); double bonus = double.Parse(Console.ReadLine());
+            arr[i] = new Director(id, name, sal, dept, bonus);
+        }
+        Console.WriteLine("\n--- Directors List ---");
+        foreach (var d in arr) Console.WriteLine(d + "\n");
+    }
+}
+        </pre>
+    </div>
+
+    <!-- Answer 5 -->
+    <div id="answer5" class="answer-card">
+        <h2>Answer 5: University Student Result System</h2>
+        <pre>
+using System;
+
+class Person {
+    public string Name; public int Age;
+    public Person(string name, int age) { Name = name; Age = age; }
+    public override string ToString() => $"Name: {Name}\nAge: {Age}";
+}
+
+class Student : Person {
+    public int RollNo; public string Course;
+    public Student(string name, int age, int roll, string course) : base(name, age) {
+        RollNo = roll; Course = course;
+    }
+    public override string ToString() => base.ToString() +
+        $"\nRollNo: {RollNo}\nCourse: {Course}";
+}
+
+class Result : Student {
+    public int M1, M2, M3;
+    public Result(string name, int age, int roll, string course, int m1, int m2, int m3) 
+        : base(name, age, roll, course) { M1 = m1; M2 = m2; M3 = m3; }
+    public override string ToString() {
+        int total = M1 + M2 + M3;
+        double percent = total / 3.0;
+        return base.ToString() + $"\nMarks: {M1}, {M2}, {M3}\nTotal: {total}\n%: {percent:F2}";
+    }
+}
+
+class Program {
+    static void Main() {
+        Result r = new Result("Sneha", 20, 501, "B.Sc", 85, 90, 95);
+        Console.WriteLine(r);
+    }
+}
+        </pre>
+    </div>
+
+    <!-- Answer 6 -->
+    <div id="answer6" class="answer-card">
+        <h2>Answer 6: Real Estate Property Sale System</h2>
+        <pre>
+using System;
+
+class Property {
+    public int PropertyID; public string Location;
+    public double BasePrice;
+    public Property(int id, string loc, double price) {
+        PropertyID = id; Location = loc; BasePrice = price;
+    }
+    public override string ToString() => $"PropertyID: {PropertyID}\nLocation: {Location}\nBasePrice: {BasePrice}";
+}
+
+class House : Property {
+    public string Type; public double Area;
+    public House(int id, string loc, double price, string type, double area) 
+        : base(id, loc, price) { Type = type; Area = area; }
+    public override string ToString() => base.ToString() +
+        $"\nType: {Type}\nArea: {Area} sq.ft";
+}
+
+class Sale : House {
+    public double TaxPercent, DiscountPercent;
+    public Sale(int id, string loc, double price, string type, double area, double tax, double disc) 
+        : base(id, loc, price, type, area) { TaxPercent = tax; DiscountPercent = disc; }
+    public double FinalPrice() {
+        double taxAmt = BasePrice * TaxPercent / 100;
+        double discAmt = BasePrice * DiscountPercent / 100;
+        return BasePrice + taxAmt - discAmt;
+    }
+    public override string ToString() => base.ToString() +
+        $"\nTax: {TaxPercent}%\nDiscount: {DiscountPercent}%\nFinal Price: {FinalPrice()}";
+}
+
+class Program {
+    static void Main() {
+        Sale s = new Sale(1, "Pune", 5000000, "Villa", 2500, 5, 2);
+        Console.WriteLine(s);
+    }
+}
+        </pre>
+    </div>
+
+    <!-- Answer 7 -->
+    <div id="answer7" class="answer-card">
+        <h2>Answer 7: Product Order Invoice System</h2>
+        <pre>
+using System;
+
+class Product {
+    public int ProductID; public string Name; public double Price;
+    public Product(int id, string name, double price) { ProductID = id; Name = name; Price = price; }
+    public override string ToString() => $"ProductID: {ProductID}\nName: {Name}\nPrice: {Price}";
+}
+
+class Order : Product {
+    public int Quantity; public string CustomerName;
+    public Order(int id, string name, double price, int qty, string cust) 
+        : base(id, name, price) { Quantity = qty; CustomerName = cust; }
+    public override string ToString() => base.ToString() +
+        $"\nQuantity: {Quantity}\nCustomer: {CustomerName}";
+}
+
+class Invoice : Order {
+    public double TaxPercent, DiscountPercent;
+    public Invoice(int id, string name, double price, int qty, string cust, double tax, double disc) 
+        : base(id, name, price, qty, cust) { TaxPercent = tax; DiscountPercent = disc; }
+    public double FinalBill() {
+        double subtotal = Price * Quantity;
+        double taxAmt = subtotal * TaxPercent / 100;
+        double discAmt = subtotal * DiscountPercent / 100;
+        return subtotal + taxAmt - discAmt;
+    }
+    public override string ToString() => base.ToString() +
+        $"\nTax: {TaxPercent}%\nDiscount: {DiscountPercent}%\nFinal Bill: {FinalBill()}";
+}
+
+class Program {
+    static void Main() {
+        Invoice inv = new Invoice(1, "Laptop", 60000, 2, "Neha", 18, 5);
+        Console.WriteLine(inv);
+    }
+}
+        </pre>
+    </div>
+</div>
+
+<!--  -->
+</body>
+</html>

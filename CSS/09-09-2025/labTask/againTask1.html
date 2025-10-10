@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            body{
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 90vh;
+                  background-color: #edf0f3;
+                  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            section{
+                  display: grid;
+                  /* justify-content: center; */
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 15px;
+                  border-radius: 20px;
+                  padding: 15px;
+                  background-color: rgb(255, 255, 255);
+                  
+            }
+            section div{
+                  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+                  padding: 30px;
+                  border-radius: 10px;
+            }
+            .div1{
+                  grid-column: span 2;
+                  background: #e74c3c;
+                  color: white;
+                  font-weight: bold;
+                  text-align: center;
+            }
+            .div2, .div3, .div4, .div6, .div7, .div8{
+                  background: #2874f0;
+                  color: white;
+                  font-weight: bold;
+                  text-align: center;
+            }
+
+            .div5{
+                  grid-row: span 2;
+                  background: #16a085;
+                  color: white;
+            }
+
+            .div9{
+                  grid-column: span 2;
+                  background: #f39c12;
+                  color: white;
+            }
+      </style>
+</head>
+<body>
+      <section>
+            <div class="div1">Item 1(Spans 2 Columns)</div>
+            <div class="div2">Item 2</div>
+            <div class="div5">Item 5(Spans 2 Rows)</div>
+            <div class="div3">Item 3</div>
+            <div class="div4">Item 4</div>
+            <div class="div9">Item 9(Spans 2 Columns)</div>
+            <div class="div6">Item 6</div>
+            <div class="div7">Item 7</div>
+            <div class="div8">Item 8</div>
+            
+      </section>
+</body>
+</html>

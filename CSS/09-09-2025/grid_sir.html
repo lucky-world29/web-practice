@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      section {
+        background-color: aquamarine;
+        display: grid;
+        /* grid-template-columns: 200px 200px 200px; */
+        grid-template-columns: repeat(
+          4,
+          1fr
+        ); /*syntax: repeat(noOfCols,widthOfCol) */
+        gap: 20px;
+      }
+      div {
+        padding: 30px;
+        background-color: grey;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+      <div>text</div>
+    </section>
+  </body>
+</html>

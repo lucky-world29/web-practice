@@ -1,0 +1,52 @@
+TASK : 1
+Take 3 examples for each string method mentioned below:
+string methods:
+1.charAt(index);//return char
+2.charCodeAt(index);return ASCII
+3.toUppercase()
+4.toLowercase()
+5.slice(startIndex,endIndex)
+6.subString(startIndex,endIndex)
+7.replace(existingWord,newWord)
+8.replaceAll(existingWord,newWord);//replaces all
+9.indexOf(char)
+10.lastIndexOf(char);//check index from right to left
+11.concat(str1,str2,....)
+12.toString();
+13.trim();// removes spaces either side
+14.trimStart();// removes space in the start
+15.trimEnd();// removes space in the end
+16.padStart(stringLength,paddingChar);
+17.padEnd(stringLength,paddingChar);
+
+============================================
+TASK 2: On substring and slice 
+================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Substring vs Slice Task</title>
+</head>
+<body>
+  <script>
+    // Take input
+    let str = prompt("Enter any sentence:");
+
+    console.log("Original String:", str);
+
+    // TASK 1: Extract first 5 characters
+    
+
+    // TASK 2: Extract last 5 characters
+  
+
+    // TASK 3: Extract middle part (2nd to 6th character)
+;
+
+    // TASK 4: Swap start and end indexes
+    
+    // TASK 5: Negative indexes
+     </script>
+</body>
+</html>

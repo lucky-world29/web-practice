@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            .container{
+                  border :1px solid red;
+                  display: inline-block;
+                  margin: 50px;
+                  position: relative;     
+            }
+            .tooltip{
+                 border: 1px sild ;
+                 /* display: none; */
+                 visibility: hidden;
+                 background-color: black;
+                 color: white;
+                 font-style: italic;
+                 position: absolute;/*class out absolute*/  /*in side it is position relative */
+                 text-align: center;
+            }
+            .btn :hover .tooltip{
+                  display: block;   
+                  visibility: visible; 
+            }
+            .btn{
+                  margin-left: 1px;
+                  background: linear-gradient(34deg,red,blue,black);
+                  display: inline-block;
+                  position: relative;
+            }
+      </style>
+</head>
+<body>
+      <div class="container">
+      <button  class="btn">Hover on me </button>
+      <span class="tooltip">i am a tooltip</span>
+      </div>
+</body>
+</html>

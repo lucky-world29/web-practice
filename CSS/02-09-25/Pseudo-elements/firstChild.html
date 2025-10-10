@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>First Child</title>
+      <style>
+            p:first-child{
+                  color: red;
+            }
+            p:first-of-type{
+                  color: rgb(75, 11, 213);
+            }
+            p:last-of-type{
+                  color: green;
+            }
+            li:first-child {
+                  color: blue;
+                  text-decoration: underline;
+            }
+            li:nth-child(2) {
+                  color: orange;
+                  font-weight: bolder;
+            }
+      </style>
+</head>
+<body>
+      <div>
+            <p>para</p>
+            <p>para</p>
+            <section>   
+                  <h1>head 1</h1>
+                  <p>para</p>
+                  <p>para</p>
+            </section>
+      </div>
+      <ul>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+      </ul>
+</body>
+</html>
