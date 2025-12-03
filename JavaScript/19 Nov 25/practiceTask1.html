@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRACTICE 1 </title>
+    <style>
+        body{
+            background-color: black;
+        }
+
+        #sidebar{
+            padding: 5px;
+            color: white;
+            border-radius: 20px;
+            width: 250px;
+            border: 2px solid red;
+            position: relative;
+            top: 19em;
+            left: 0px;
+        }
+        .collapsed {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="toggle-btn">BTN</button>
+
+    <div id="sidebar" class="collapsed">
+        <h1>Side Bar </h1>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Eaque quis, natus quas unde ipsa voluptatibus, maxime 
+            ducimus aperiam laboriosam consequatur quam nisi? 
+            Esse expedita inventore asperiores voluptate omnis iusto perspiciatis?
+        </p>
+    </div>
+</body>
+<script>
+    const btn = document.getElementById("toggle-btn");
+const sidebar = document.getElementById("sidebar");
+
+btn.addEventListener("click", function() {
+    sidebar.classList.toggle("collapsed");
+});
+
+</script>
+</html>

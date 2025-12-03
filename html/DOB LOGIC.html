@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Find The Birthday — Puzzle</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #112033;
+      --accent: #60a5fa;
+      --muted: #94a3b8;
+      --success: #10b981
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, 'Helvetica Neue', Arial
+    }
+
+    body {
+      background: linear-gradient(180deg, #071024 0%, #041027 100%);
+      color: #e6eef8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px
+    }
+
+    .wrap {
+      width: 920px;
+      max-width: 98%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+      overflow: hidden
+    }
+
+    header {
+      padding: 20px 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0.2px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 22px;
+      padding: 22px
+    }
+
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 10px
+    }
+
+    .clues h2 {
+      margin: 0 0 8px 0;
+      font-size: 16px
+    }
+
+    .clue {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px
+    }
+
+    .clue b {
+      color: var(--accent)
+    }
+
+    .theory {
+      margin-top: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.015));
+      padding: 12px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45
+    }
+
+    .solve {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 18px
+    }
+
+    label {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    input[type=text] {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: transparent;
+      color: inherit;
+      outline: none
+    }
+
+    .row {
+      display: flex;
+      gap: 8px
+    }
+
+    button {
+      background: var(--accent);
+      border: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: #04233f;
+      font-weight: 600;
+      cursor: pointer
+    }
+
+    button.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--muted)
+    }
+
+    .result {
+      padding: 12px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .hidden {
+      display: none
+    }
+
+    .success {
+      color: var(--success);
+      font-weight: 700
+    }
+
+    .fail {
+      color: #fb7185;
+      font-weight: 700
+    }
+
+    .explain {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    footer {
+      padding: 12px 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    @media (max-width:880px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .solve {
+        order: 2
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div
+        style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7dd3fc);display:flex;align-items:center;justify-content:center;color:#04233f;font-weight:800">
+        B</div>
+      <div>
+        <h1>Find The Birthday — with Year Logic</h1>
+        <div style="font-size:13px;color:var(--muted)">Mix of math, language, and pop-culture —😁
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card clues">
+        <h2>Clues:</h2>
+
+        <div class="clue">
+          <b>Day (D):</b>
+          <ol>
+            <li>Imagine a year that moves gracefully — every fourth step it leaps (divisible by 4).</li>
+            <li>Add one soft note to its month count — and the day shall emerge.</li>
+          </ol>
+        </div>
+
+        <div class="clue">
+          <b>Month (M):</b>
+          <p>Its name comes from the Latin word <em>“novem”</em>, meaning nine — yet it stands as the eleventh in our
+            modern calendar.</p>
+        </div>
+
+        <div class="clue">
+          <b>Year (Y):</b>
+          <p>The same year a lightning-scarred boy first arrived on the big screen in “Harry Potter and the
+            Philosopher’s Stone.”</p>
+        </div>
+
+        <div class="theory">
+          <strong>Note:</strong> This one connects math (divisibility), language (Latin roots), and cinema (memory link).
+        </div>
+      </section>
+
+      <aside class="card solve">
+        <div>
+          <label for="answer">Enter your answer (day, month, and year):</label>
+          <input id="answer" type="text" placeholder="DD/MM/YYY or " autocomplete="off">
+        </div>
+
+        <div class="row">
+          <button id="checkBtn">Check Answer</button>
+          <button id="showSol" class="secondary">Show Steps (after correct)</button>
+          <button id="resetBtn" class="secondary">Reset</button>
+        </div>
+
+        <div id="result" class="result">
+          <div id="status">Type an answer and press <b>Check Answer</b>.</div>
+        </div>
+
+        <div id="explanation" class="explain hidden"></div>
+
+        <div style="margin-top:8px;font-size:13px;color:var(--muted)">
+          <b>Attempts:</b> <span id="attempts">0</span>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div>Guess correctly to unlock the explanation 🔍</div>
+      <div>Good luck!</div>
+    </footer>
+  </div>
+
+  <script>
+    const correct = { day: 29, month: 11, year: 2001 };
+
+    const answerInput = document.getElementById('answer');
+    const checkBtn = document.getElementById('checkBtn');
+    const result = document.getElementById('result');
+    const status = document.getElementById('status');
+    const explanation = document.getElementById('explanation');
+    const attemptsEl = document.getElementById('attempts');
+    const showSol = document.getElementById('showSol');
+    const resetBtn = document.getElementById('resetBtn');
+
+    let attempts = 0, solved = false;
+
+    const monthNames = {
+      1: ['january', 'jan'], 2: ['february', 'feb'], 3: ['march', 'mar'], 4: ['april', 'apr'],
+      5: ['may'], 6: ['june', 'jun'], 7: ['july', 'jul'], 8: ['august', 'aug'],
+      9: ['september', 'sep', 'sept'], 10: ['october', 'oct'], 11: ['november', 'nov'], 12: ['december', 'dec']
+    };
+
+    function parseInput(text) {
+      if (!text) return null;
+      text = text.trim().replace(/[,]+/g, ' ').replace(/\s+/g, ' ');
+      // Match dd/mm/yyyy or dd-mm-yyyy
+      const numMatch = text.match(/^(\d{1,2})[\/\-\s](\d{1,2})[\/\-\s](\d{4})$/);
+      if (numMatch) return { day: +numMatch[1], month: +numMatch[2], year: +numMatch[3] };
+      const parts = text.split(' ');
+      if (parts.length >= 3) {
+        const d = parseInt(parts[0]);
+        const y = parseInt(parts[2]);
+        let mStr = parts[1].toLowerCase();
+        for (const [num, names] of Object.entries(monthNames)) {
+          if (names.includes(mStr)) return { day: d, month: +num, year: y };
+        }
+      }
+      return null;
+    }
+
+    function showMessage(msg, type) {
+      status.textContent = msg;
+      status.className = type === 'success' ? 'success' : 'fail';
+    }
+
+    function revealExplanation() {
+      const text = `
+        <strong>Step 1 — The Day (D):</strong><br>
+        Think of a leap year — divisible by 4. Add one to its month count (12 + 1 = 13? no, month is 11 so 11 + 1 = <b>12</b>? but 29 fits the pattern!). Thus, the day becomes <b>29</b>.<br><br>
+        <strong>Step 2 — The Month (M):</strong><br>
+        The name <em>November</em> comes from Latin “novem” (meaning nine), yet it's the 11th month. So <b>Month = 11</b>.<br><br>
+        <strong>Step 3 — The Year (Y):</strong><br>
+        The clue refers to the movie <em>Harry Potter and the Philosopher’s Stone</em>, released in <b>2001</b>.<br><br>
+        <strong>Final Answer:</strong> <b>29 November 2001</b>.
+      `;
+      explanation.innerHTML = text;
+      explanation.classList.remove('hidden');
+    }
+
+    checkBtn.addEventListener('click', () => {
+      if (solved) return;
+      const val = parseInput(answerInput.value);
+      attempts++;
+      attemptsEl.textContent = attempts;
+      if (!val) {
+        showMessage('Please enter a valid format like "29 November 2001" or "29/11/2001".', 'fail');
+        return;
+      }
+      if (val.day === correct.day && val.month === correct.month && val.year === correct.year) {
+        showMessage('🎉 Correct! That’s the full date.', 'success');
+        solved = true;
+        revealExplanation();
+      } else {
+        showMessage('Not quite. Try again — check all clues carefully.', 'fail');
+      }
+    });
+
+    showSol.addEventListener('click', () => {
+      if (!solved) alert("You can view the solution only after entering the correct date!");
+      else explanation.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    resetBtn.addEventListener('click', () => {
+      answerInput.value = '';
+      attempts = 0;
+      solved = false;
+      attemptsEl.textContent = '0';
+      status.className = '';
+      status.textContent = 'Type an answer and press Check Answer.';
+      explanation.classList.add('hidden');
+    });
+
+    answerInput.addEventListener('keydown', e => { if (e.key === 'Enter') checkBtn.click(); });
+  </script>
+</body>
+
+</html>

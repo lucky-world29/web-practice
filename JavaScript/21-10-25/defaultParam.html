@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const add = function(x,y,z){
+            return x + y+z;
+        }
+        /*let u =  add(1,3,6);
+        document.writeln(`The sum of 1 + 3 + 6 is ${u}<br>`);
+        let y = add(1,5);
+        document.writeln(`The sum of 1 + 5 is ${y}`)//Nan (1+5+undefined)
+        */
+
+        const addd = function(x=0,y=0,z=0){ // if we are providing default values we will find even if we don;t give 3 values it is automatically calling the default values that we asigned here .
+            return x+y+z;
+        }
+            // let y = addd(1,5);
+            // document.writeln(`The sum of 1 + 5 is ${y}`)
+       const add1 = (x,y,z)=> {return x+y+z;}
+
+       const power = (x,y) =>{
+                return x**y;
+       }
+       document.writeln(`pow is : ${power(2,3)}<br>`);
+
+       const power1 = (x,y=1)=>{
+                return x**y;
+       } 
+       document.writeln(`Power is : ${power1(3,3)}`); // here it'll take the default value  even we pass only one value 
+
+       window.vaiable = 45; //global 
+    </script> 
+</body>
+</html>

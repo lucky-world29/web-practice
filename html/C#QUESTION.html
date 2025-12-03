@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>C# — 50 Question Quiz (Full)</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#06b6d4;--muted:#94a3b8;--correct:#16a34a;--wrong:#ef4444}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;background:linear-gradient(180deg,#071026 0%, #04101a 100%);color:#e6eef6}
+    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    h1{font-size:20px;margin:0}
+    .meta{color:var(--muted);font-size:13px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    .question{padding:12px;border-radius:8px;margin-bottom:10px;background:rgba(255,255,255,0.01)}
+    pre{background:#03121a;padding:10px;border-radius:6px;overflow:auto;margin:6px 0}
+    .opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .opt{flex:1 1 calc(50% - 8px);min-width:140px}
+    label.option{display:block;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+    input[type=radio]{margin-right:8px}
+    .controls{display:flex;gap:8px;align-items:center;margin-top:14px}
+    button{background:var(--accent);border:none;color:#042024;padding:8px 12px;border-radius:8px;cursor:pointer}
+    .result{margin-top:12px;padding:12px;border-radius:8px;background:rgba(0,0,0,0.25)}
+    .correct{color:var(--correct);font-weight:700}
+    .wrong{color:var(--wrong);font-weight:700}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+    @media (max-width:640px){.opt{flex:1 1 100%}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>C# — 50 Question Quiz (Full)</h1>
+        <div class="meta">All questions are client-side. Select one option per question and submit to see score.</div>
+      </div>
+      <div class="meta">Good luck!</div>
+    </header>
+
+    <div class="card" id="quiz"></div>
+
+    <div class="controls">
+      <button id="submitBtn">Submit Answers</button>
+      <button id="resetBtn" style="background:#e2e8f0;color:#021018">Retake Test</button>
+      <div class="small">Score: <span id="score">-</span></div>
+    </div>
+
+    <div id="resultArea" class="result" style="display:none"></div>
+
+    <footer>
+      Tip: After submitting you can retake the test. Answers are checked in the browser only.
+    </footer>
+  </div>
+
+  <script>
+  // Questions data: {q: string, code?: string, options: [..], answer: index}
+  const QUESTIONS = [
+    { q: "What will print?", code: `using System;\nclass Demo {\n    delegate void Show();\n    static void Main() {\n        int a = 5;\n        Show s = () => Console.WriteLine(a);\n        a = 10;\n        s();\n    }\n}`, options:["Runtime Error","5","10","Compile Time Error"], answer:2},
+    { q:"Output?", code:`static int T() { Console.Write("T"); return 0; }\nstatic void Main() { bool r = T() == 1 || T() == 0 && T() == 1; }`, options:["TT","TTT","T","Compile Time Error"], answer:1},
+    { q:"Output?", code:`HashSet<int> hs = new HashSet<int>(){10,20,20,30};\nConsole.WriteLine(hs.Count);`, options:["2","3","4","Runtime Error"], answer:1},
+    { q:"Output?", code:`using System;\nabstract class Base { int x = 10; public Base() { Console.Write(x + " "); } }\nclass Derived : Base { int y = 20; public Derived() { Console.Write(y); } }\nclass Program { static void Main() { Base obj = new Derived(); } }`, options:["20 10","10 20","10","Compile Time Error"], answer:1},
+    { q:"Output?", code:`ArrayList arr = new ArrayList(){10, "Test", 20.5};\nConsole.WriteLine(arr[1]);`, options:["Test","10","20.5","Runtime Error"], answer:0},
+    { q:"Output?", code:`Func<int, int, int> f = (a, b) => a * b;\nConsole.WriteLine(f(5, 2));`, options:["10","7","25","Compile Time Error"], answer:0},
+    { q:"Output?", code:`using System;\nclass Test { delegate bool Check(int n); static void Main() { Check c = delegate (int x) { return x % 2 == 0; }; Console.WriteLine(c(7) ? "Even" : "Odd"); } }`, options:["Even","Odd","7","Compile Time Error"], answer:1},
+    { q:"Output?", code:`List<int> list = new List<int>(){ 10,20,30,40 }; list.Insert(2, 25); Console.WriteLine(list[2]);`, options:["20","25","30","10"], answer:1},
+    { q:"Output?", code:`int a = 5; int b = 9; Console.WriteLine(a > 3 && b++ >= 10); Console.WriteLine(b);`, options:["True 10","False 10","True 9","False 9"], answer:1},
+    { q:"Output?", code:`using System; class A { public A() { Console.Write("1"); } } class B : A { public B() { Console.Write("2"); } } class C : B { public C() { Console.Write("3"); } } class Test { static void Main() { A a = new C(); } }`, options:["123","321","12","13"], answer:0},
+
+    { q:"What will happen?", code:`using System; class A { public virtual void Print() { Console.Write("A "); } } class B : A { public sealed override void Print() { Console.Write("B "); } } class C : B { public override void Print() { Console.Write("C "); } } class Test { static void Main() { C c = new C(); c.Print(); } }`, options:["Prints C","Prints B","Compile time error","Runtime Error"], answer:2},
+    { q:"Output?", code:`using System; class A { public virtual void Test() { Console.Write("A"); } } class B : A { public override void Test() { Console.Write("B"); } } class C : B { public override void Test() { base.Test(); Console.Write("C"); } } class Prog { static void Main() { A obj = new C(); obj.Test(); } }`, options:["ABC","BC","AC","B"], answer:1},
+    { q:"Output?", code:`HashSet<int> hs = new HashSet<int>(){ 2,4,6,8,8 }; Console.WriteLine(hs.Count);`, options:["5","4","3","Runtime Error"], answer:1},
+    { q:"Output?", code:`delegate int D(int x); class Test { static int Twice(int x) { return x*2; } static void Main() { D d = Twice; d += Twice; Console.WriteLine(d(4)); } }`, options:["16","8","4","Runtime Error"], answer:1},
+    { q:"Output?", code:`delegate void Show(int x); class Test { static void Print(int a) { Console.WriteLine(a*a); } static void Main() { Show s = Print; s.Invoke(5); } }`, options:["5","10","25","Compile Error"], answer:2},
+    { q:"Output?", code:`using System; class P { public virtual int Num { get; set; } = 5; } class C : P { public override int Num { get; set; } = 20; } public class v{ static void Main() { P obj = new C(); Console.WriteLine(obj.Num); } }`, options:["5","20","10","Compile Error"], answer:1},
+    { q:"Output?", code:`using System; class A { public void Print() => Console.Write("A"); } class B : A { public new void Print() => Console.Write("B"); } class Test { static void Main() { A a = new B(); B b = new B(); a.Print(); b.Print(); } }`, options:["AB","BA","AA","BB"], answer:0},
+    { q:"Output?", code:`using System; interface I { void Display(); } class P { public P() { Console.Write("P "); } } class Q : P, I { int x = 5; public Q() { x = 10; Console.Write("Q "); } public void Display() { Console.Write(x); } } class Test { static void Main() { I obj = new Q(); obj.Display(); } }`, options:["5 P Q","P Q 10","Q P 5","Compile Error"], answer:1},
+    { q:"Output?", code:`int p = 5; p += p *= 2; Console.WriteLine(p);`, options:["10","15","20","25"], answer:1},
+
+    { q:"Output?", code:`using System; class A { public virtual int X { get; } = 10; } class B : A { public new int X { get; } = 50; } public class v{ static void Main() { A obj = new B(); Console.WriteLine(obj.X); } }`, options:["10","50","0","Compile Error"], answer:0},
+    { q:"Output?", code:`SortedList<int,string> sl = new SortedList<int,string>(); sl.Add(5,"Five"); sl.Add(1,"One"); sl.Add(3,"Three"); Console.WriteLine(sl.Values[0]);`, options:["Five","One","Three","Runtime Error"], answer:1},
+    { q:"Output?", code:`Dictionary<int, string> d = new Dictionary<int, string>(); d.Add(1, "One"); d.Add(2, "Two"); d.Add(3, "Three"); foreach(var x in d.Keys) Console.Write(x+" ");`, options:["1 2 3","Any order","3 2 1","Runtime Error"], answer:1},
+    { q:"Output?", code:`using System; class A { static A() { Console.Write("S"); } public A() { Console.Write("I"); } } class Program { static void Main() { A a1 = new A(); A a2 = new A(); } }`, options:["SII","SI","II","ISI"], answer:0},
+    { q:"Output?", code:`class Base { public virtual string Name { get; } = "Base"; } class Derived : Base { public override string Name { get; } = "Derived"; } static void Main() { Base obj = new Derived(); Console.WriteLine(obj.Name); }`, options:["Base","Derived","Null","Compile Error"], answer:1},
+    { q:"Output?", code:`List<int> l = new List<int>(){ 5,10,15,20 }; Console.WriteLine(l.IndexOf(30));`, options:["0","-1","Exception","3"], answer:1},
+    { q:"Output?", code:`using System; class Test { delegate int Cal(int a, int b); static void Main() { Cal c = (x, y) => x + y; c += (x, y) => x * y; Console.WriteLine(c(2, 3)); } }`, options:["11","6","5","Compile Error"], answer:1},
+    { q:"Output?", code:`using System; class Test { static int M() { Console.Write("M "); return 1; } static void Main() { int x = M() + M() * M(); Console.WriteLine("\\n" + x); } }`, options:["M M M \\n 3","M M M \\n 2","M \\n 1","Compile Error"], answer:1},
+
+    { q:"Output?", code:`using System; abstract class P { public P(string msg) { Console.Write(msg + " "); } } class Q : P { public Q() : base("Hello") { Console.Write("World"); } } class Test { static void Main() { new Q(); } }`, options:["Compile time error","Hello World","World Hello","Runtime Error"], answer:1},
+    { q:"Output?", code:`Predicate<int> p = n => n > 100; Console.WriteLine(p(120));`, options:["120","True","False","Compile Error"], answer:1},
+    { q:"Output?", code:`List<string> names = new List<string>(){ "A","B","C" }; names.Remove("B"); Console.WriteLine(names[1]);`, options:["B","C","A","Compile Error"], answer:1},
+    { q:"Output?", code:`List<int> l = new List<int>(){ 4,1,3,2 }; l.Sort(); Console.WriteLine(l[3]);`, options:["1","2","3","4"], answer:3},
+    { q:"Output?", code:`using System; class Demo { public int Data { get; set; } = 5; } class p{ static void Main() { Demo d = new Demo(); d.Data += 5; Console.WriteLine(d.Data); } }`, options:["5","10","0","Compile Error"], answer:1},
+    { q:"Output?", code:`string x = "10"; string y = "20"; Console.WriteLine(x + y + 5 + 5);`, options:["102010","102055","305","Compile Error"], answer:1},
+
+    { q:"Output?", code:`using System; interface I1 { int X { get; set; } } class A : I1 { public int X { get; set; } = 20; } public class v{ static void Main() { I1 obj = new A(); Console.WriteLine(obj.X); } }`, options:["0","20","Null","Compile Error"], answer:1},
+    { q:"Output?", code:`Dictionary<int,string> d = new Dictionary<int,string>(); d.Add(1,"A"); d.Add(1,"B"); Console.WriteLine(d.Count);`, options:["1","2","Runtime Error","Compile Error"], answer:2},
+    { q:"Output?", code:`Dictionary<string, int> d = new Dictionary<string, int>(); d.Add("Java", 1); d.Add("C#", 2); d["C#"] = 5; Console.WriteLine(d["C#"]);`, options:["5","2","7","Compile Error"], answer:0},
+    { q:"Output?", code:`using System; class A { public A() { Console.Write("A "); } } class B : A { public B() { Console.Write("B "); } } class Test { static void Main() { B obj = new B(); } }`, options:["A B","B A","B","A"], answer:0},
+    { q:"Output?", code:`int num = 10; Console.WriteLine(num == 10 ? num = 20 : num = 30); Console.WriteLine(num);`, options:["20 , 20","10 , 10","30 , 30","Compile Error"], answer:0},
+
+    { q:"Output?", code:`Dictionary<int, string> d = new Dictionary<int, string>() { {1,"One"}, {2,"Two"}, {3,"Three"} }; Console.WriteLine(d.ContainsKey(4));`, options:["True","False","Runtime Error","Compile Error"], answer:1},
+    { q:"Output?", code:`using System; class BaseClass { public virtual string GetData() { return "Base"; } } class Derived : BaseClass { public override string GetData() { return base.GetData() + "Derived"; } } class Test { static void Main() { BaseClass b = new Derived(); Console.WriteLine(b.GetData()); } }`, options:["Base","BaseDerived","Derived","Compile Error"], answer:1},
+    { q:"Output?", code:`using System; class X { public virtual string Msg() => "X"; } class Y : X { public override string Msg() => "Y"; } class Z : Y { public override string Msg() => base.Msg() + "Z"; } class Test { static void Main() { X obj = new Z(); Console.WriteLine(obj.Msg()); } }`, options:["XYZ","YZ","XZ","Compile Error"], answer:1},
+    { q:"Which statement preserves original stack trace?", options:["throw;","throw ex;","new Exception();","catch;"], answer:0},
+    { q:"Output?", code:`using System; class Test { delegate int MyDel(int x); static void Main() { MyDel d = x => x * x; Console.WriteLine(d.Invoke(3) + d(2)); } }`, options:["13","9","4","11"], answer:0},
+    { q:"Output?", code:`using System; class Test { delegate void Print(int x); static void Main() { Print p = x => Console.Write(x * 2); p += x => Console.Write(x + 5); p(3); } }`, options:["68","35","6","8"], answer:0},
+
+    { q:"Output?", code:`using System; class P { private int _p; public int Value { get { return _p; } set { if (value > 100) _p = 100; else _p = value; } } static void Main() { P x = new P(); x.Value = 150; Console.WriteLine(x.Value); } }`, options:["150","100","50","0"], answer:1},
+    { q:"Output?", code:`using System; class Test { int x; public Test() { x = 5; Console.Write(x + " "); } public Test(int a) : this() { x += a; Console.Write(x); } static void Main() { Test t = new Test(5); } }`, options:["5 10","10 5","5","Compile Error"], answer:0},
+    { q:"Output?", code:`using System; class A { public virtual void Show() => Console.WriteLine("A"); } class B : A { public override void Show() => Console.WriteLine("B"); } class C : B { public new void Show() => Console.WriteLine("C"); } class Test { static void Main() { A obj = new C(); obj.Show(); } }`, options:["A","B","C","Compile Error"], answer:1},
+    { q:"Output?", code:`using System; class A { public int x = 10; } class B : A { public int x = 20; } class Test { static void Main() { A obj = new B(); Console.WriteLine(obj.x); } }`, options:["10","20","0","Compile Error"], answer:0},
+    { q:"What will it print?", code:`delegate int Fun(); class Test { static int M1(){ return 10; } static int M2(){ return 20; } static void Main() { Fun f = M1; f += M2; Console.WriteLine(f()); } }`, options:["10","20","Error","Compile Error"], answer:1},
+    { q:"Output?", code:`using System; abstract class X { static X() { Console.Write("S "); } public X() { Console.Write("I "); } } class Y : X { public Y() { Console.Write("Y "); } } class Program { static void Main() { X obj = new Y(); } }`, options:["S I Y","I Y","Y I","Compile Error"], answer:0}
+  ];
+
+  // Render questions
+  const quiz = document.getElementById('quiz');
+  QUESTIONS.forEach((item,i)=>{
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question';
+    qDiv.id = 'q'+(i+1);
+    const title = document.createElement('div');
+    title.innerHTML = `<strong>${i+1}.</strong> ${item.q}`;
+    qDiv.appendChild(title);
+    if(item.code){
+      const pre = document.createElement('pre'); pre.textContent = item.code; qDiv.appendChild(pre);
+    }
+    const opts = document.createElement('div'); opts.className='opts';
+    (item.options||[]).forEach((opt,j)=>{
+      const optWrap = document.createElement('div'); optWrap.className='opt';
+      const id = `q${i+1}_opt${j}`;
+      optWrap.innerHTML = `<label class="option"><input type="radio" name="q${i+1}" value="${j}" id="${id}"> <strong>${String.fromCharCode(65+j)})</strong> ${opt}</label>`;
+      opts.appendChild(optWrap);
+    });
+    qDiv.appendChild(opts);
+    quiz.appendChild(qDiv);
+  });
+
+  // Submit handler
+  document.getElementById('submitBtn').addEventListener('click', ()=>{
+    let score=0; let total=QUESTIONS.length; let details=[];
+    QUESTIONS.forEach((item,i)=>{
+      const selected = document.querySelector(`input[name=q${i+1}]:checked`);
+      const user = selected ? Number(selected.value) : null;
+      const correct = item.answer;
+      const qEl = document.getElementById('q'+(i+1));
+      // clear previous marks
+      qEl.querySelectorAll('label.option').forEach(l=>{ l.style.borderColor='rgba(255,255,255,0.04)'; l.style.background=''; });
+      if(user === correct){ score++; details.push({i:i+1,ok:true});
+        const lab = selected.closest('label.option'); lab.style.borderColor='var(--correct)'; lab.style.background='rgba(22,163,74,0.06)';
+      } else {
+        details.push({i:i+1,ok:false});
+        // highlight selected wrong
+        if(selected){ const lab = selected.closest('label.option'); lab.style.borderColor='var(--wrong)'; lab.style.background='rgba(239,68,68,0.05)'; }
+        // highlight correct
+        const corr = document.getElementById(`q${i+1}_opt${correct}`);
+        if(corr){ const labc = corr.closest('label.option'); labc.style.borderColor='var(--correct)'; labc.style.background='rgba(22,163,74,0.06)'; }
+      }
+    });
+    document.getElementById('score').textContent = `${score} / ${total}`;
+    const resultArea = document.getElementById('resultArea');
+    resultArea.style.display = 'block';
+    resultArea.innerHTML = `<div><strong>Your score: ${score} / ${total}</strong></div><div class="small" style="margin-top:6px">Green = correct answer. Red = your wrong selection. You can retake the test with the "Retake Test" button.</div>`;
+    // scroll to result
+    resultArea.scrollIntoView({behavior:'smooth'});
+  });
+
+  // Reset
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    // clear radios
+    document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+    document.querySelectorAll('label.option').forEach(l=>{ l.style.borderColor='rgba(255,255,255,0.04)'; l.style.background=''; });
+    document.getElementById('score').textContent='-';
+    document.getElementById('resultArea').style.display='none';
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+  </script>
+</body>
+</html>

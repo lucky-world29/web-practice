@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <script>
+        const object = {
+            a: "some string", // string type
+            b: 42, // number type
+            c: true, // boolean type
+            d: null, // null type
+        };
+
+        document.write(`${Object.keys(object)}`);
+        Object.keys(object).forEach(key => {
+            document.write(`<br>${key}: ${object[key]} (type: ${typeof object[key]})`);
+        });
+    </script>
+</body>
+
+</html>
