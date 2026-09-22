@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+        <style>
+            /* Define a violet palette */
+:root {
+  --bs-violet: #7c3aed;          /* base */
+  --bs-violet-rgb: 124,58,237;
+
+  --bs-violet-100: #f3f0ff;
+  --bs-violet-200: #e9e5ff;
+  --bs-violet-300: #d6ccff;
+  --bs-violet-400: #b8a6ff;
+  --bs-violet-500: #9b7dff;
+  --bs-violet-600: #7c3aed;      /* base */
+  --bs-violet-700: #6d28d9;
+  --bs-violet-800: #5b21b6;
+  --bs-violet-900: #4c1d95;
+}
+
+/* Create Bootstrap-like utility classes */
+.bg-violet        { background-color: rgba(var(--bs-violet-rgb), 1) !important; }
+.text-violet      { color: rgba(var(--bs-violet-rgb), 1) !important; }
+.border-violet    { border-color: rgba(var(--bs-violet-rgb), 1) !important; }
+
+.bg-violet-soft   { background-color: var(--bs-violet-100) !important; }
+.bg-violet-light  { background-color: var(--bs-violet-200) !important; }
+
+/* Button variant (Bootstrap-style) */
+.btn-violet {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--bs-violet-600);
+  --bs-btn-border-color: var(--bs-violet-600);
+  --bs-btn-hover-bg: var(--bs-violet-700);
+  --bs-btn-hover-border-color: var(--bs-violet-700);
+  --bs-btn-active-bg: var(--bs-violet-800);
+  --bs-btn-active-border-color: var(--bs-violet-800);
+  --bs-btn-disabled-bg: var(--bs-violet-400);
+  --bs-btn-disabled-border-color: var(--bs-violet-400);
+}
+        </style>
+</head>
+
+<body>
+    <div class="container mt-4 p-3">
+        <div class="bg-violet-soft p-3">Soft violet</div>
+<button class="btn btn-violet">Save</button>
+<i class="text-violet fas fa-star"></i>
+    </div>
+    <div class="container mt-4">
+        <table class="table" style="border: 1px solid; border-radius: 8px; overflow: hidden;">
+        <thead class="table-dark">
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+            </tr>
+        </thead> 
+        <tbody>
+            <tr class="">
+                <td>John Doe</td>
+                <td>john@gmail.com</td>
+            </tr>
+            <tr class="bg-violet-soft">
+                <td class="bg-violet-soft">Jane Doe</td>
+                <td class="bg-violet-soft">jane@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

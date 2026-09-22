@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Dashboard Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Row 1: Very light off-white/gray so it doesn't "disappear" into the page */
+        .custom-zebra tbody tr:nth-child(odd) {
+            background-color: #FAFAFA; 
+        }
+        /* Row 2: Soft Peach/Light Orange to match your request */
+        /* .custom-zebra tbody tr:nth-child(even) {
+            background-color: #FFF7ED; 
+        } */
+         .zebra-table tbody tr:nth-child(even) {
+            background-color: #F8F4FF;
+        }
+    </style>
+</head>
+<body class="p-10 bg-gray-200">
+
+    <div class="max-w-6xl mx-auto overflow-hidden rounded-xl border border-gray-300 shadow-xl bg-white">
+        <table class="w-full text-left border-collapse custom-zebra">
+            <!-- Header: Keeping the exact Violet from image_a0bf7a.png -->
+            <thead class="bg-[#F3E8FF] border-b-2 border-purple-200">
+                <tr>
+                    <th class="px-6 py-5 text-xs font-bold uppercase tracking-widest text-[#7C3AED]">Actions</th>
+                    <th class="px-6 py-5 text-xs font-bold uppercase tracking-widest text-[#7C3AED]">Role Name</th>
+                    <th class="px-6 py-5 text-xs font-bold uppercase tracking-widest text-[#7C3AED]">Role Description</th>
+                    <th class="px-6 py-5 text-xs font-bold uppercase tracking-widest text-[#7C3AED]">Status</th>
+                </tr>
+            </thead>
+            
+            <tbody class="divide-y divide-gray-200">
+                <!-- Row 1 (Light Gray-White) -->
+                <tr class="hover:bg-purple-50 transition-colors">
+                    <td class="px-6 py-4 flex gap-2">
+                        <span class="p-2 bg-[#0EA5E9] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-blue-600">👁️</span>
+                        <span class="p-2 bg-[#F59E0B] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-orange-500">✏️</span>
+                        <span class="p-2 bg-[#EF4444] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-red-600">🗑️</span>
+                    </td>
+                    <td class="px-6 py-4 font-bold text-gray-700">ADMIN</td>
+                    <td class="px-6 py-4 text-gray-600">Full administrative control</td>
+                    <td class="px-6 py-4">
+                        <span class="bg-[#22C55E] text-white px-3 py-1 rounded-md text-[10px] font-bold uppercase">Active</span>
+                    </td>
+                </tr>
+                
+                <!-- Row 2 (Soft Peach Stripe) -->
+                <tr class="hover:bg-purple-50 transition-colors">
+                    <td class="px-6 py-4 flex gap-2">
+                        <span class="p-2 bg-[#0EA5E9] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-blue-600">👁️</span>
+                        <span class="p-2 bg-[#F59E0B] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-orange-500">✏️</span>
+                        <span class="p-2 bg-[#EF4444] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-red-600">🗑️</span>
+                    </td>
+                    <td class="px-6 py-4 font-bold text-gray-700">CUSTOMER SERVICE</td>
+                    <td class="px-6 py-4 text-gray-600">Client support and ticket management</td>
+                    <td class="px-6 py-4">
+                        <span class="bg-[#22C55E] text-white px-3 py-1 rounded-md text-[10px] font-bold uppercase">Active</span>
+                    </td>
+                </tr>
+
+                <!-- Row 3 (Light Gray-White) -->
+                <tr class="hover:bg-purple-50 transition-colors">
+                    <td class="px-6 py-4 flex gap-2">
+                        <span class="p-2 bg-[#0EA5E9] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-blue-600">👁️</span>
+                        <span class="p-2 bg-[#F59E0B] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-orange-500">✏️</span>
+                        <span class="p-2 bg-[#EF4444] text-white rounded shadow-sm text-xs cursor-pointer hover:bg-red-600">🗑️</span>
+                    </td>
+                    <td class="px-6 py-4 font-bold text-gray-700">FINANCE</td>
+                    <td class="px-6 py-4 text-gray-600">Payroll and financial auditing</td>
+                    <td class="px-6 py-4">
+                        <span class="bg-[#22C55E] text-white px-3 py-1 rounded-md text-[10px] font-bold uppercase">Active</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
